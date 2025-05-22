@@ -59,6 +59,12 @@ class VerificationCode extends StatefulWidget {
   /// padding inside boxes
   final EdgeInsets? padding;
 
+  /// cursor height
+  final double? cursorHeight;
+
+  /// decoration of the container
+  final BoxDecoration? decoration;
+
   const VerificationCode({
     Key? key,
     required this.onCompleted,
@@ -80,6 +86,8 @@ class VerificationCode extends StatefulWidget {
     this.digitsOnly = false,
     this.margin = EdgeInsets.zero,
     this.padding,
+    this.cursorHeight,
+    this.decoration,
   }) : super(key: key);
 
   @override
@@ -200,6 +208,7 @@ class _VerificationCodeState extends State<VerificationCode> {
         }
       },
       child: TextField(
+        cursorHeight: widget.cursorHeight,
         keyboardType: widget.keyboardType,
         inputFormatters: widget.digitsOnly
             ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
@@ -287,6 +296,7 @@ class _VerificationCodeState extends State<VerificationCode> {
         child: Container(
             height: widget.itemSize,
             width: widget.itemSize,
+            decoration: widget.decoration,
             margin: EdgeInsets.only(left: left),
             child: _buildInputItem(index)),
       ));
