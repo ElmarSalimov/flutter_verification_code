@@ -293,12 +293,17 @@ class _VerificationCodeState extends State<VerificationCode> {
       double left = (index == 0) ? 0.0 : (widget.itemSize / 10);
       listWidget.add(Padding(
         padding: widget.margin,
-        child: Container(
-            height: widget.itemSize,
-            width: widget.itemSize,
-            decoration: widget.decoration,
-            margin: EdgeInsets.only(left: left),
-            child: _buildInputItem(index)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                height: widget.itemSize,
+                width: widget.itemSize,
+                decoration: widget.decoration,
+                margin: EdgeInsets.only(left: left),
+                child: _buildInputItem(index)),
+          ],
+        ),
       ));
     }
     return listWidget;
